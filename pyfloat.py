@@ -164,8 +164,6 @@ class PyFloat:
         a, b = self.__split(self.__n), self.__split(o.__n)
         nDen = self.__fill(a[0], b[0], False)
         nNum = self.__fill(a[1], b[1])
-        aS = nDen[0] + "-" + nNum[0]
-        bS = nDen[1] + "-" + nNum[1]
         aS = self.__clearZeros(nDen[0]) + nNum[0]
         bS = self.__clearZeros(nDen[1]) + nNum[1]
         result = str(int(aS) * int(bS))
@@ -186,6 +184,14 @@ class PyFloat:
         return self * PyFloat("-1")
 
     def __truediv__(self, o):
+        a, b = self.__split(self.__n), self.__split(o.__n)
+        nDen = self.__fill(a[0], b[0], False)
+        nNum = self.__fill(a[1], b[1])
+        aS = self.__clearZeros(nDen[0]) + nNum[0]
+        bS = self.__clearZeros(nDen[1]) + nNum[1]
+
+        
+
         return PyFloat("0")
 
     def __idiv__(self, o):

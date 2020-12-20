@@ -77,6 +77,16 @@ def testIntMulDecimals(a, b):
     target = target[0:decimalsToCheck]
     assert (value == target), ("Decimal -> " + str(a) + " * " + str(b) + " should be [" + target + "] and is [" +  value + "]")
 
+def testComparators(a, b):
+    aPy, bPy = PyFloat.parseFromDouble(a), PyFloat.parseFromDouble(b)
+    assert (a>b) == (aPy>bPy), ("Comparation (a>b) == (aPy>bPy) fails " + str(a) + " <--> " + str(b) )
+    assert (a>=b) == (aPy>=bPy), ("Comparation (a>=b) == (aP>=bPy) fails " + str(a) + " <--> " + str(b) )
+    assert (a==b) == (aPy==bPy), ("Comparation (a==b) == (aPy==bPy) fails " + str(a) + " <--> " + str(b) )
+    assert (a!=b) == (aPy!=bPy), ("Comparation (a!=b) == (aPy!=bPy) fails " + str(a) + " <--> " + str(b) )
+    assert (a<=b) == (aPy<=bPy), ("Comparation (a<=b) == (aPy<=bPy) fails " + str(a) + " <--> " + str(b) )
+    assert (a<b) == (aPy<bPy), ("Comparation (a<b) == (aPy<bPy) fails " + str(a) + " <--> " + str(b) )
+    
+
 # def testIntDiv(i, j):
 #     target = str(i / j)
 #     iStr = str(i)
@@ -103,4 +113,6 @@ if __name__ == "__main__":
         testIntSubDecimals(ar, br)
         testIntMulDecimals(ar, br)
         # testIntDiv(a, b)
+
+        testComparators(a, b)
         
