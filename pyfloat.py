@@ -27,12 +27,20 @@ class PyFloat:
     @staticmethod
     def parseFromSciNumber(double):
         number = str(double)
-        if "e" in number:
-            nat, realComposedE = number.split("e")
-            sign, realE = realComposedE[0], realComposedE[1:]
-            realE = "0" * (int(realComposedE[1:]) - 1)
-            realE = "10"+realE if sign=="+" else "0."+realE+"1"
-            number = str(PyFloat(nat) * PyFloat(realE))
+        number = number.lower()
+        try:
+            float(number) # check if string is a number
+            if number == "nan" or number == "-nan" or number == "inf" or number == "-inf":
+                number = "0"
+            elif "e" in number:
+                nat, realComposedE = number.split("e")
+                sign, realE = realComposedE[0], realComposedE[1:]
+                realE = "0" * (int(realComposedE[1:]) - 1)
+                realE = "10"+realE if sign=="+" else "0."+realE+"1"
+                number = str(PyFloat(nat) * PyFloat(realE))
+        except Exception as ex:
+            number = "0"
+
         return number
 
     def __split(self, n):
@@ -190,7 +198,7 @@ class PyFloat:
         aS = self.__clearZeros(nDen[0]) + nNum[0]
         bS = self.__clearZeros(nDen[1]) + nNum[1]
 
-        
+
 
         return PyFloat("0")
 
