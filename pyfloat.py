@@ -26,8 +26,7 @@ class PyFloat:
 
     @staticmethod
     def parseFromSciNumber(double):
-        number = str(double)
-        number = number.lower()
+        number = str(double).lower()
         try:
             float(number) # check if string is a number
             if number == "nan" or number == "-nan" or number == "inf" or number == "-inf":
