@@ -1,6 +1,6 @@
 ## PyFloat Lib
 
-Python Library for doings sums, subs, multiplications and divisions without losing precission. All operations are using strings for computing the result
+Python Library for doings sums, subs, multiplications and divisions without losing precission
 
 ## How to use
 
