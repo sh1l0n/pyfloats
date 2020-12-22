@@ -294,14 +294,3 @@ class PyFloat:
             intPart*=PyFloat(n[2])
 
             return PyFloat(str(intPart) + "." + str(newDecimals))
-
-#0.001008016032048
-#0.001008020000000
-#8 >=5 +1 -> 9
-#4 <4 -1   -> 5
-
-noround = PyFloat(0.00002092)*PyFloat(50.1002004)
-# noround = PyFloat(-1.999999999992)
-print(noround)
-print(noround.round(8))
-
