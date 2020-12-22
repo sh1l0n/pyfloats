@@ -18,7 +18,14 @@
 
 class PyFloat:
     def __init__(self, n="0"):
-        self.__n = PyFloat.parseFromSciNumber(n)
+        if type(n) == str:
+            self.__n = PyFloat.parseFromSciNumber(n)
+        elif type(n) == float or type(n) == int:
+            self.__n = str(PyFloat.parseFromDouble(n))
+        elif type(n) == type(self):
+            self.__n = n.__n
+        else:
+            self.__n = "0"
 
     @staticmethod
     def parseFromDouble(double):
@@ -26,10 +33,10 @@ class PyFloat:
 
     @staticmethod
     def parseFromSciNumber(double):
-        number = str(double).lower()
         try:
+            number = str(double).lower()
             float(number) # check if string is a number
-            if number == "nan" or number == "-nan" or number == "inf" or number == "-inf":
+            if number == "nan" or number == "-nan" or number == "inf" or number == "-inf" or number == None:
                 number = "0"
             elif "e" in number:
                 nat, realComposedE = number.split("e")
@@ -97,6 +104,7 @@ class PyFloat:
     def __joinNumber(self, n, decimals, sign):
         # print("joinNumber " + n + " decimals " + str(decimals) + " sign " + sign)
         nNat = n[0:len(n)-decimals] if len(n)>decimals else "0"
+        nNat = self.__clearZeros(nNat)
         # print("2.nNat ..> " + nNat)
         # print("decimals " + str(decimals))
         # nNat = self.__clearZeros(nNat)
@@ -131,11 +139,16 @@ class PyFloat:
             return 1
         else:
             return 0
+    
+    def __repr__(self):
+        return str(self)
 
     def __str__(self):
         return self.__n
 
     def __add__(self, o):
+        if o == None:
+            return self
         a, b = self.__split(self.__n), self.__split(o.__n)
         nDen = self.__fill(a[0], b[0], False)
         nNum = self.__fill(a[1], b[1])
@@ -152,6 +165,8 @@ class PyFloat:
         return self + o
 
     def __sub__(self, o):
+        if o == None:
+            return self
         a, b = self.__split(self.__n), self.__split(o.__n)
         nDen = self.__fill(a[0], b[0], False)
         nNum = self.__fill(a[1], b[1])
@@ -168,6 +183,8 @@ class PyFloat:
         return self - o
 
     def __mul__(self, o):
+        if o == None:
+            return self
         a, b = self.__split(self.__n), self.__split(o.__n)
         nDen = self.__fill(a[0], b[0], False)
         nNum = self.__fill(a[1], b[1])
@@ -185,45 +202,106 @@ class PyFloat:
         return PyFloat(result)
 
     def __imul__(self, o):
-        return e * o
+        return self * o
 
     def __neg__(self):
         return self * PyFloat("-1")
 
     def __truediv__(self, o):
+        if o == None:
+            return self
         a, b = self.__split(self.__n), self.__split(o.__n)
         nDen = self.__fill(a[0], b[0], False)
         nNum = self.__fill(a[1], b[1])
         aS = self.__clearZeros(nDen[0]) + nNum[0]
         bS = self.__clearZeros(nDen[1]) + nNum[1]
-
-
-
+        ##TODO
         return PyFloat("0")
 
     def __idiv__(self, o):
         return self/n
 
     def __lt__(self, o):
+        if o == None:
+            return False
         c = self.__compare(o.__n) 
         return c==-1
 
     def __gt__(self, o):
+        if o == None:
+            return False
         c = self.__compare(o.__n) 
         return c==1
 
     def __le__(self, o):
+        if o == None:
+            return False
         c = self.__compare(o.__n) 
         return c<=0
 
     def __ge__(self, o):
+        if o == None:
+            return False
         c = self.__compare(o.__n) 
         return c>=0
 
     def __eq__(self, o):
+        if o == None:
+            return False
         c = self.__compare(o.__n) 
         return c==0
 
     def __ne__(self, o):
+        if o == None:
+            return True
         c = self.__compare(o.__n) 
         return c!=0
+
+    def abs(self):
+        return -self if self.__n[0]=="-" else self
+
+    def sign(self):
+        return 1 if self>=PyFloat(0) else -1
+
+    def round(self, decimals=0):
+        n = self.__split(self.__n)
+        dec = n[1]
+        if len(dec)==0 or len(dec)<=decimals:
+            return self
+        else:
+            newDecimals = ""
+            carry = PyFloat(0)
+            for i in range(len(dec)-1, -1, -1):
+                d = PyFloat(0)
+                if i<decimals:
+                    d = PyFloat(dec[i]) + carry
+                    carry = PyFloat(0)
+                    if d >= PyFloat(10):
+                        d = d - PyFloat(10)
+                        carry = PyFloat(1)
+
+                else:
+                    d = PyFloat(0)
+                    carry = PyFloat(1) if (PyFloat(dec[i])+carry)>=PyFloat(5) else PyFloat(0)
+                
+                newDecimals = str(d) + newDecimals
+            
+            newDecimals = self.__clearZeros(newDecimals, False)
+            intPart = PyFloat(n[0])
+            if carry > PyFloat(0):
+                intPart += carry
+            
+            intPart*=PyFloat(n[2])
+
+            return PyFloat(str(intPart) + "." + str(newDecimals))
+
+#0.001008016032048
+#0.001008020000000
+#8 >=5 +1 -> 9
+#4 <4 -1   -> 5
+
+noround = PyFloat(0.00002092)*PyFloat(50.1002004)
+# noround = PyFloat(-1.999999999992)
+print(noround)
+print(noround.round(8))
+
