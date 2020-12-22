@@ -7,14 +7,16 @@ Python Library for doings sums, subs, multiplications and divisions without losi
 ```
 >> import pyfloat
 
->> PyFloat.parseFromDouble(2.1234e-12)
+>> PyFloat(2.1234e-12)
 '0.0000000000021234'
->> PyFloat.parseFromDouble(-2.1234e+12)
+>> PyFloat(-2.1234e+12)
 '-2123400000000'
->> PyFloat.parseFromDouble(0.1452)
+>> PyFloat(0.1452)
 '0.1452'
+>> PyFloat(PyFloat(152.455))
+'152.455'
 >> a = PyFloat("123451.1234551230000000004444445551122000000011")
->> b = PyFloat("-8123994.000002234100000001323400000001232112221")
+>> b = PyFloat(-8123994.000002234100000001323400000001232112221)
 >> a + b
 '-8000542.8765471111000000008789554448890321122199'
 >> a - b
@@ -27,6 +29,14 @@ Python Library for doings sums, subs, multiplications and divisions without losi
 'True'
 >> a > b
 'True'
+>>> PyFloat(0.00239419391).round(10)
+'0.0023941939'
+>>> PyFloat(0.00239419391).round(7)
+'0.0023942'
+>>> PyFloat(0.00239419391).round(3)
+'0.002'
+>>> PyFloat(-1234.5678).abs()
+'1234.5678'
 ```
 
 ## Test
