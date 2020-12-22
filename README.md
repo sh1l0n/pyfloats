@@ -33,8 +33,8 @@ Python Library for doings sums, subs, multiplications and divisions without losi
 '0.0023941939'
 >>> PyFloat(0.00239419391).round(7)
 '0.0023942'
->>> PyFloat(0.00239419391).round(3)
-'0.002'
+>>> PyFloat(0.00239419391).round(4)
+'0.0024'
 >>> PyFloat(-1234.5678).abs()
 '1234.5678'
 ```
