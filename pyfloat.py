@@ -266,8 +266,11 @@ class PyFloat:
     def round(self, decimals=0):
         n = self.__split(self.__n)
         dec = n[1]
-        if len(dec)==0 or len(dec)<=decimals:
+        if len(dec)==0 :
             return self
+        elif len(dec)<=decimals:
+            diff = decimals - len(dec)
+            return PyFloat(str(self) + "0"*diff)
         else:
             newDecimals = ""
             carry = PyFloat(0)
