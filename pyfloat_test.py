@@ -23,18 +23,18 @@ import math
 
 
 def testIntSum(i, j):
-    target = PyFloat.parseFromDouble(i + j)
-    value = PyFloat.parseFromDouble(i) + PyFloat.parseFromDouble(j)
+    target = PyFloat(i + j)
+    value = PyFloat(i) + PyFloat(j)
     assert target == value, (str(i)  + " + " + str(j) + " should be " + str(target) + " and is " + str(value))
 
 def testIntSub(i, j):
-    target = PyFloat.parseFromDouble(i - j)
-    value = PyFloat.parseFromDouble(i) - PyFloat.parseFromDouble(j)
-    assert target == value, (str(j)  + " - " + str(i) + " should be " + str(target) + " and is " + str(value))
+    target = PyFloat(i - j)
+    value = PyFloat(i) - PyFloat(j)
+    assert target == value, (str(i)  + " - " + str(j) + " should be " + str(target) + " and is " + str(value))
 
 def testIntMul(i, j):
-    target = PyFloat.parseFromDouble(i * j)
-    value = PyFloat.parseFromDouble(i) * PyFloat.parseFromDouble(j)
+    target = PyFloat(i * j)
+    value = PyFloat(i) * PyFloat(j)
     assert target == value, (str(i)  + " * " + str(j) + " should be " + str(target) + " and is " + str(value))
 
 # def testIntPow(i, j):
@@ -48,28 +48,28 @@ def getDecimals(a):
     return 0 if len(aS)==1 else len(aS[1])
 
 def testIntSumDecimals(a, b, decimalsToCheck):
-    value = str( PyFloat.parseFromDouble(a) + PyFloat.parseFromDouble(b) )
-    target = str( PyFloat.parseFromDouble(a + b) )
-    value = value[0:decimalsToCheck]
-    target = target[0:decimalsToCheck]
+    value = PyFloat(a) + PyFloat(b)
+    target = PyFloat(a + b)
+    value = str(value)[0:decimalsToCheck]
+    target = str(target)[0:decimalsToCheck]
     assert (value == target), ("Decimal -> " + str(a) + " + " + str(b) + " should be [" + target + "] and is [" +  value + "]")
 
 def testIntSubDecimals(a, b, decimalsToCheck):
-    value = str( PyFloat.parseFromDouble(a) - PyFloat.parseFromDouble(b) )
-    target = str( PyFloat.parseFromDouble(a - b) )
-    valueS = value[0:decimalsToCheck]
-    targetS = target[0:decimalsToCheck]
+    value = PyFloat(a) - PyFloat(b)
+    target = PyFloat(a - b)
+    valueS = str(value)[0:decimalsToCheck]
+    targetS = str(target)[0:decimalsToCheck]
     assert (valueS == targetS), ("Decimal -> " + str(a) + " - " + str(b) + " should be [" + target + "] and is [" +  value + "], valueS : " + valueS + " targetS " + targetS)
 
 def testIntMulDecimals(a, b, decimalsToCheck):
-    value = str( PyFloat.parseFromDouble(a) * PyFloat.parseFromDouble(b) )
-    target = str( PyFloat.parseFromDouble(a * b) )
-    value = value[0:decimalsToCheck]
-    target = target[0:decimalsToCheck]
+    value = PyFloat(a) * PyFloat(b)
+    target = PyFloat(a * b)
+    value = str(value)[0:decimalsToCheck]
+    target = str(target)[0:decimalsToCheck]
     assert (value == target), ("Decimal -> " + str(a) + " * " + str(b) + " should be [" + target + "] and is [" +  value + "]")
 
 def testComparators(a, b):
-    aPy, bPy = PyFloat.parseFromDouble(a), PyFloat.parseFromDouble(b)
+    aPy, bPy = PyFloat(a), PyFloat(b)
     assert (a>b) == (aPy>bPy), ("Comparation (a>b) == (aPy>bPy) fails " + str(a) + " <--> " + str(b) )
     assert (a>=b) == (aPy>=bPy), ("Comparation (a>=b) == (aP>=bPy) fails " + str(a) + " <--> " + str(b) )
     assert (a==b) == (aPy==bPy), ("Comparation (a==b) == (aPy==bPy) fails " + str(a) + " <--> " + str(b) )
@@ -77,7 +77,6 @@ def testComparators(a, b):
     assert (a<=b) == (aPy<=bPy), ("Comparation (a<=b) == (aPy<=bPy) fails " + str(a) + " <--> " + str(b) )
     assert (a<b) == (aPy<bPy), ("Comparation (a<b) == (aPy<bPy) fails " + str(a) + " <--> " + str(b) )
     
-
 # def testIntDiv(i, j):
 #     target = str(i / j)
 #     iStr = str(i)
