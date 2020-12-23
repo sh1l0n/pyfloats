@@ -19,20 +19,18 @@
 class PyFloat:
     def __init__(self, n="0"):
         if type(n) == str:
-            self.__n = PyFloat.parseFromSciNumber(n)
+            self.__n = self.__parseFromString(n)
         elif type(n) == float or type(n) == int:
-            self.__n = str(PyFloat.parseFromDouble(n))
+            self.__n = self.__parseFromDouble(n)
         elif type(n) == type(self):
             self.__n = n.__n
         else:
             self.__n = "0"
 
-    @staticmethod
-    def parseFromDouble(double):
-        return PyFloat(PyFloat.parseFromSciNumber(str(double)))
+    def __parseFromDouble(self, double):
+        return self.__parseFromString(str(double))
 
-    @staticmethod
-    def parseFromSciNumber(double):
+    def __parseFromString(self, double):
         try:
             number = str(double).lower()
             float(number) # check if string is a number
@@ -257,11 +255,17 @@ class PyFloat:
         c = self.__compare(o.__n) 
         return c!=0
 
+    def floatValue(self):
+        return float(self.__n)
+    
+    def strValue(self):
+        return self.__n
+
     def abs(self):
         return -self if self.__n[0]=="-" else self
 
     def sign(self):
-        return 1 if self>=PyFloat(0) else -1
+        return 1 if self>=PyFloat() else -1
 
     def round(self, decimals=0):
         n = self.__split(self.__n)
@@ -273,25 +277,25 @@ class PyFloat:
             return PyFloat(str(self) + "0"*diff)
         else:
             newDecimals = ""
-            carry = PyFloat(0)
+            carry = PyFloat()
             for i in range(len(dec)-1, -1, -1):
-                d = PyFloat(0)
+                d = PyFloat()
                 if i<decimals:
                     d = PyFloat(dec[i]) + carry
-                    carry = PyFloat(0)
+                    carry = PyFloat()
                     if d >= PyFloat(10):
                         d = d - PyFloat(10)
                         carry = PyFloat(1)
 
                 else:
-                    d = PyFloat(0)
-                    carry = PyFloat(1) if (PyFloat(dec[i])+carry)>=PyFloat(5) else PyFloat(0)
+                    d = PyFloat()
+                    carry = PyFloat(1) if (PyFloat(dec[i])+carry)>=PyFloat(5) else PyFloat()
                 
                 newDecimals = str(d) + newDecimals
             
             newDecimals = self.__clearZeros(newDecimals, False)
             intPart = PyFloat(n[0])
-            if carry > PyFloat(0):
+            if carry > PyFloat():
                 intPart += carry
             
             intPart*=PyFloat(n[2])
