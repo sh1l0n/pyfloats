@@ -267,6 +267,16 @@ class PyFloat:
     def sign(self):
         return 1 if self>=PyFloat() else -1
 
+    def truncate(self, decimals=0):
+        n = self.__split(self.__n)
+        decimalsFiltered = decimals if decimals>=0 else 0
+        decLength = len(n[1])
+        if decLength<=decimals:
+            diff = decimals - decLength
+            return PyFloat(str(self) + "0"*diff)
+        else:
+            return PyFloat(n[0] + "." + n[1][0:decimals])*PyFloat(n[2])
+
     def round(self, decimals=0):
         n = self.__split(self.__n)
         dec = n[1]
