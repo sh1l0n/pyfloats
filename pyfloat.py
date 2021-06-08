@@ -259,13 +259,14 @@ class PyFloat:
         return float(self.__n)
     
     def strValue(self):
-        return self.__n
+        return str(self)
 
     def abs(self):
         return -self if self.__n[0]=="-" else self
 
     def sign(self):
         return 1 if self>=PyFloat() else -1
+
 
     def truncate(self, decimals=0):
         n = self.__split(self.__n)
