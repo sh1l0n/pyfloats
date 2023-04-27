@@ -1,1 +1,1 @@
-from pyfloat.py_float import PyFloat
+from pyfloat.pyfloat import PyFloat
