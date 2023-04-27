@@ -8,7 +8,7 @@ authors = [
 description = "Python Library for doing math operations with floats without lossing precission"
 readme = "README.md"
 classifiers = [
-    "Topic :: Software Development :: Libraries :: Python Modules :: Math"
+    "Topic :: Software Development :: Libraries :: Python Modules"
 ]
 
 keywords = ["decimal", "float", "double", "truncate", "floor", "math"]
