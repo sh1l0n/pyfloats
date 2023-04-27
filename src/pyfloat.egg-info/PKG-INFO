@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: pyfloat
-Version: 0.0.1
+Version: 0.0.2
 Summary: Python Library for doing math operations with floats without lossing precission
 Author-email: Jesus Manresa Parres <dev-jesusmanresaparres@protonmail.com>
-Project-URL: homepage, https://github.com/sh1l0n/pyfloats
-Project-URL: repository, https://github.com/sh1l0n/pyfloats
+Project-URL: Homepage, https://github.com/sh1l0n/pyfloats
+Project-URL: Repository, https://github.com/sh1l0n/pyfloats
 Keywords: decimal,float,double,truncate,floor,math
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
 Description-Content-Type: text/markdown
