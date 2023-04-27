@@ -1,5 +1,5 @@
 [project]
-name = "pyfloat_sh1l0n"
+name = "pyfloat"
 version = "0.0.1"
 authors = [
     { name="Jesus Manresa Parres", email="dev-jesusmanresaparres@protonmail.com" },

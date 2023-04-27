@@ -11,3 +11,6 @@ help:
 
 build:
 	python3 -m build 
+
+deploy:
+	twine upload dist/*

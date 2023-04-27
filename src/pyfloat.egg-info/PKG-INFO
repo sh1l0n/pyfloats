@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: pyfloat-sh1l0n
+Name: pyfloat
 Version: 0.0.1
 Summary: Python Library for doing math operations with floats without lossing precission
 Author-email: Jesus Manresa Parres <dev-jesusmanresaparres@protonmail.com>
