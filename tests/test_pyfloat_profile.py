@@ -1,7 +1,7 @@
 import cProfile
 from random import seed, random, randint
 import sys
-from pyfloat import PyFloat
+from src.pyfloat_sh1l0n import PyFloat
 
 #!/usr/bin/env python
 """
@@ -23,7 +23,7 @@ from pyfloat import PyFloat
 
 from random import seed, random, randint
 import sys
-from pyfloat import PyFloat
+from src.pyfloat_sh1l0n import PyFloat
 import math
 
 def sum(a, b):

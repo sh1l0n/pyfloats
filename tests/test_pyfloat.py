@@ -18,7 +18,7 @@
 
 from random import seed, random, randint
 import sys
-from pyfloat import PyFloat
+from src.pyfloat_sh1l0n import PyFloat
 import math
 
 

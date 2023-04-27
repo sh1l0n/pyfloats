@@ -1,6 +1,6 @@
 ## PyFloat Lib
 
-Python Library for doings sums, subs, multiplications and divisions without losing precission
+Python Library for doing math operations with floats without lossing precission
 
 ## How to use
 

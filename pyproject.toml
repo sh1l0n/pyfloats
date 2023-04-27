@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "pyfloat"
+version = "0.0.1"
+description = "Python Library for doing math operations with floats without lossing precission"
+authors = ["Jesus Manresa Parres <dev-jesusmanresaparres@protonmail.com>"]
+readme = "README.md"
+keywords = ["decimal", "float", "double", "truncate", "floor", "math"]
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules :: Math"
+]
+include = ["CHANGELOG.md"]
+packages = [{include = "pyfloat_sh1l0n"}]
+
+[tool.poetry.dependencies]
+python = "^3.10.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.urls]
+homepage = "https://github.com/sh1l0n/pyfloats"
+repository = "https://github.com/sh1l0n/pyfloats"
