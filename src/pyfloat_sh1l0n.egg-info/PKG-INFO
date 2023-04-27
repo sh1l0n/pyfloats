@@ -6,7 +6,7 @@ Author-email: Jesus Manresa Parres <dev-jesusmanresaparres@protonmail.com>
 Project-URL: homepage, https://github.com/sh1l0n/pyfloats
 Project-URL: repository, https://github.com/sh1l0n/pyfloats
 Keywords: decimal,float,double,truncate,floor,math
-Classifier: Topic :: Software Development :: Libraries :: Python Modules :: Math
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
