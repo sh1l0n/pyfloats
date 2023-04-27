@@ -1,12 +1,16 @@
 Metadata-Version: 2.1
 Name: pyfloat
-Version: 0.0.2
+Version: 0.0.3
 Summary: Python Library for doing math operations with floats without lossing precission
 Author-email: Jesus Manresa Parres <dev-jesusmanresaparres@protonmail.com>
 Project-URL: Homepage, https://github.com/sh1l0n/pyfloats
 Project-URL: Repository, https://github.com/sh1l0n/pyfloats
 Keywords: decimal,float,double,truncate,floor,math
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
@@ -17,7 +21,7 @@ Python Library for doing math operations with floats without lossing precission
 ## How to use
 
 ```
->> import pyfloat
+>> from pyfloat import PyFloat
 
 >> PyFloat(2.1234e-12)
 '0.0000000000021234'

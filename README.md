@@ -5,7 +5,7 @@ Python Library for doing math operations with floats without lossing precission
 ## How to use
 
 ```
->> import pyfloat
+>> from pyfloat import PyFloat
 
 >> PyFloat(2.1234e-12)
 '0.0000000000021234'

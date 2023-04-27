@@ -9,6 +9,9 @@ all:
 help:
 	@egrep "^# target:" [Mm]akefile
 
+install:
+	python3 -m pip install --upgrade build
+
 build:
 	python3 -m build 
 
