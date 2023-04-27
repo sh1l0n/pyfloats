@@ -1,22 +1,24 @@
-[tool.poetry]
-name = "pyfloat"
+[project]
+name = "pyfloat_sh1l0n"
 version = "0.0.1"
+authors = [
+    { name="Jesus Manresa Parres", email="dev-jesusmanresaparres@protonmail.com" },
+]
+
 description = "Python Library for doing math operations with floats without lossing precission"
-authors = ["Jesus Manresa Parres <dev-jesusmanresaparres@protonmail.com>"]
 readme = "README.md"
-keywords = ["decimal", "float", "double", "truncate", "floor", "math"]
 classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules :: Math"
 ]
-include = ["CHANGELOG.md"]
-packages = [{include = "pyfloat_sh1l0n"}]
+
+keywords = ["decimal", "float", "double", "truncate", "floor", "math"]
 
 [tool.poetry.dependencies]
-python = "^3.10.4"
+python = "^3.7"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project.urls]
 homepage = "https://github.com/sh1l0n/pyfloats"
